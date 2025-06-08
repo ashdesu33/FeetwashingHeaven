@@ -42,7 +42,7 @@ const imageList = [
       img.style.position = "absolute";
       img.style.width = widthPercent + "vw";
       img.style.left = getRandom(0, 100 - widthPercent) + "vw";
-      img.style.top = getRandom(0, 100 - widthPercent * 0.75) + "vh"; // adjust for vertical overlap
+      img.style.top = getRandom(0, 100 - widthPercent) + "vh"; // adjust for vertical overlap
         
       img.style.transform = `rotate(${baseRotation}deg)`;
       img.style.transition = "none";
