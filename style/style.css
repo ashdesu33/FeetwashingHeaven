@@ -99,43 +99,119 @@ body{
 #about{
     position: relative;
     width: 100vw;
-    background-color: rgb(255, 253, 211);
+    background-color: rgb(246, 254, 159);
 }
 .about_text{
     display: flex;
     flex-direction: column;
     align-items:end;
-    padding: 5% 10%;
+    padding: 5% 0%;
     padding-left: 30%;
     font-family: 'park';
-    font-size: 20px;
+    font-size: 25px;
 }
+.about_text p{
+    padding-left: 20%;
+    padding-right: 10%;
+}
+
 .about_text img{
-    width: 100%;
+    width: 70%;
+}
+#about_title{
+    position: absolute;
+    width: 35vw;
+    top:0%;
+    left: 15%;
+    transform: rotate(-10deg);
+    transform-origin: center center;
 }
 
 .gallery{
     width: 90%;
-    height: 110vh;
+    /* height: 130vh; */
     padding-left: 10%;
     background-color: rgb(228, 240, 250);
-    background-image: url(../visual_asset/world.png);
+    background-image: url(../visual_asset/publi\ background.png);
     background-size:contain;
 }
 .gallery img{
     width: 100%;
+}
+#zine_collection{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding-left: 10%;
+    align-items: center;
+
 }
 #vol_1{
     display: flex;
     columns: 2;
 }
 #v1_1, #v1_2{
-    width: 50%;
     object-fit: contain;
+    width: 40%;
+}
+#v1_2{
+    width: 60%;
 }
 
 #exhibition{
-   height: 500vh;
-   background-image: url(../visual_asset/curtain.jpg); 
-   background-size:cover;
+   height: 800vh;
+   background-image: url(../visual_asset/IMG_1127.jpg); 
+   background-size:contain;
+   position: relative;
 }
+#curtain{
+    position: absolute;
+    width: 100%;
+}
+#exhib_title{
+    position: absolute;
+    top:2%;
+    width: 60vw;
+    left:20%;
+    transform-origin: center center;
+    z-index: 10;
+}
+
+.exhib_gallery {
+    position: sticky;
+    top: 10%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 1;
+  }
+  
+  .gallery-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: 100%;
+    padding-left: 10%;
+  }
+  
+  .gallery-item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+  }
+  .gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .gallery-item.loaded {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .gallery-item img {
+    width: 100%;
+    display: block;
+  }
+  
