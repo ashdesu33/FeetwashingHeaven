@@ -1,3 +1,9 @@
+
+function toWebpPath(originalPath) {
+  return originalPath
+    .replace('../visual_asset/', '../output_webp/')
+    .replace(/\.[^/.]+$/, '.webp'); // replace extension with .webp
+}
 const imageList = [
     "../visual_asset/scattered/Artboard 1.png",
     "../visual_asset/scattered/Artboard 2.png",
@@ -34,7 +40,7 @@ const imageList = [
   function loadRandomImages(count) {
     for (let i = 0; i < count; i++) {
       const img = document.createElement("img");
-      const src = imageList[i];
+      const src = toWebpPath(imageList[i]);
       const widthPercent = getRandom(10, 15);
       const baseRotation = getRandom(-100, 100);
   

@@ -126,8 +126,36 @@ window.addEventListener('load', () => {
   });
 
 
-  function toWebpPath(originalPath) {
-    return originalPath
-      .replace('../visual_asset/', '../output_webp/')
-      .replace(/\.[^/.]+$/, '.webp'); // replace extension with .webp
+
+
+const overlay = document.getElementById("overlay");
+const overlayGallery = document.getElementById("overlay-gallery");
+const closeBtn = document.getElementById("close-overlay");
+
+// A function to load images from a folder with given ID
+function openGalleryFromId(id) {
+  const folderPath = `../output_webp/${id}/`;
+  overlayGallery.innerHTML = '';
+
+
+  for (let i = 0; i < 10; i++) {
+    const img = new Image();
+    img.src = `${folderPath}${i}.webp`;
+    img.onerror = () => img.remove(); 
+    overlayGallery.appendChild(img);
   }
+
+  overlay.classList.remove("hidden");
+}
+
+// Close overlay
+closeBtn.addEventListener("click", () => {
+  overlay.classList.add("hidden");
+});
+
+// Attach click listeners to images
+document.querySelectorAll('img[id]').forEach(img => {
+  img.addEventListener("click", () => {
+    openGalleryFromId(img.id);
+  });
+});
