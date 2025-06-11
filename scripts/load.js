@@ -7,7 +7,7 @@ const zineList = [
 const zine_container = document.getElementById("zine_collection");
 for(i=0; i<zineList.length;i++){
     const img = document.createElement("img");
-    const src = zineList[i];
+    const src = toWebpPath(zineList[i]);
     img.src = src;
     zine_container.append(img);
 }
@@ -32,7 +32,7 @@ const exhib_images = [
   const row = document.querySelector('.gallery-row');
 const exhibition = document.querySelector('#exhibition');
 
-const framePattern = [1, 2, 1, 2, 3, 1];
+const framePattern = [1, 2, 1, 2, 2, 1];
 
 // Build frames based on pattern and image count
 const frames = [];
@@ -52,19 +52,20 @@ let currentFrame = -1;
 function renderFrame(frameIndex) {
     const imagesThisFrame = frames[frameIndex];
     const startIndex = frames.slice(0, frameIndex).reduce((a, b) => a + b, 0);
-    const images = exhib_images.slice(startIndex, startIndex + imagesThisFrame);
+    const images = exhib_images.slice(startIndex, startIndex + imagesThisFrame)
+    .map(toWebpPath);
   
     row.innerHTML = '';
   
     let imgPtr = 0; // track actual image inserted
   
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 2; i++) {
       const div = document.createElement('div');
   
       const shouldInsert =
         (images.length === 1 && i === 1) ||
         (images.length === 2 && (i === 0 || i === 2)) ||
-        (images.length === 3);
+        (images.length === 2);
   
       if (shouldInsert && images[imgPtr]) {
         const img = document.createElement('img');
@@ -123,3 +124,10 @@ window.addEventListener('load', () => {
       }
     });
   });
+
+
+  function toWebpPath(originalPath) {
+    return originalPath
+      .replace('../visual_asset/', '../output_webp/')
+      .replace(/\.[^/.]+$/, '.webp'); // replace extension with .webp
+  }

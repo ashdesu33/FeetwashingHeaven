@@ -24,7 +24,10 @@ body{
     background-image: url(../visual_asset/background.png);
     overflow-x: hidden;
 }
-#logo{
+
+/* Landing page */
+
+.logo{
     width: 80%;
     padding-top: 0%;
     padding-left: 20%;
@@ -51,6 +54,8 @@ body{
     width:50%;
 
 }
+
+/* Navigation */
 .nav{
     position:fixed;
     width: 15%;
@@ -96,6 +101,9 @@ body{
 #home{
     height: 100vh;
 }
+
+
+/* About */
 #about{
     position: relative;
     width: 100vw;
@@ -159,7 +167,7 @@ body{
 
 #exhibition{
    height: 800vh;
-   background-image: url(../visual_asset/IMG_1127.jpg); 
+   background-image: url(../visual_asset/background.png); 
    background-size:contain;
    position: relative;
 }
@@ -179,7 +187,7 @@ body{
 .exhib_gallery {
     position: sticky;
     top: 10%;
-    height: 100vh;
+    height: 80vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -189,7 +197,7 @@ body{
   
   .gallery-row {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 10px;
     width: 100%;
     padding-left: 10%;
@@ -214,4 +222,93 @@ body{
     width: 100%;
     display: block;
   }
+
+  .gallery-item img {
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  
+  .gallery-item.loaded img {
+    opacity: 1;
+  }
+
+
+@media screen and (max-width: 700px){
+/* Landing */
+.nav-links{display: none;}
+.nav{
+    left:38vw;
+    top:20px;
+    width: 25vw;
+}
+#nav_2{
+    display: none;
+}
+body{
+    overflow-x: hidden;
+    width: 100vw;
+}
+#home{
+    position: relative;
+    overflow: hidden;
+}
+.logo{
+    width: auto;
+    position:absolute;
+    top:20vh;
+    left: 0;
+    transform: rotate(20deg) scale(1.5);
+    transform-origin: center center;
+    will-change: transform;
+    padding-left: 0;
+    
+}
+
+#fw{
+    padding-bottom: 10%;
+}
+#home{
+    width: 100%;
+}
+#center{
+    position: relative;
+    left: 0;
+    top:50vh
+}
+#ppl{
+    position:absolute;
+    width: 100%;
+    padding-left: 0;
+
+}
+#about{
+    padding: 0;
+}
+#about_title{
+    width: 60%;
+    left: 10px;
+}
+.about_text{
+    padding-left: 0;
+    padding-top: 30%;
+}
+
+#exhibition{
+    height: 800vh;
+    background-image: url(../output_webp/background.webp); 
+    background-size:contain;
+    position: relative;
+ }
+
+.gallery-row {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px;
+    width: 100%;
+    padding-left: 0%;
+  }
+    
+}
+
+
   
