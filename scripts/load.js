@@ -32,7 +32,7 @@ const exhib_images = [
   const row = document.querySelector('.gallery-row');
 const exhibition = document.querySelector('#exhibition');
 
-const framePattern = [1, 2, 1, 2, 2, 1];
+const framePattern = [2, 2, 2, 2, 2, 2];
 
 // Build frames based on pattern and image count
 const frames = [];
@@ -134,7 +134,7 @@ const closeBtn = document.getElementById("close-overlay");
 
 // A function to load images from a folder with given ID
 function openGalleryFromId(id) {
-  const folderPath = `../output_webp/${id}/`;
+  const folderPath = `../visual_asset/${id}/`;
   overlayGallery.innerHTML = '';
 
 
@@ -159,3 +159,8 @@ document.querySelectorAll('img[id]').forEach(img => {
     openGalleryFromId(img.id);
   });
 });
+
+
+function goto(url){
+  window.open(url, '_blank');
+}
